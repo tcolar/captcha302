@@ -77,7 +77,7 @@ class CaptchaImpl : CaptchaWriter
       color := uniqueColor(colors)
       colors.add(color)
       img.stroke(color, r.next(charStroke))
-      x := width / nbChars * index + r.next % (width / nbChars  / 2)
+      x := width / nbChars * index + r.next % (width / nbChars  / 4)
       if(x < 0) x = 1
       y := r.next((0 .. height / 2))
       scale := r.next(charScale)

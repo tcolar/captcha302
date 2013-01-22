@@ -20,7 +20,7 @@ const class CaptchaCode
   Bool matches(Str text, Bool scrambledOk := false)
   {
     if( ! scrambledOk)
-      return val == text.trim
+      return val == text.trim.upper
     // otherwise checking if scrambled match
     if(text.size != val.size)
      return false
