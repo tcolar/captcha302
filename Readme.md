@@ -1,6 +1,6 @@
 ### What is this:
 
-This is a Captha generator for Fantom. (Completely Automated Public Turing test to tell Computers and Humans Apart")
+This is a Captcha generator for Fantom. (Completely Automated Public Turing test to tell Computers and Humans Apart")
 
 It doesn't use FWT / SWT at all but creates the images in memory
 using [graphics302](https://bitbucket.org/status302/graphics302/).
