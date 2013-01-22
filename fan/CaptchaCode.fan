@@ -5,18 +5,32 @@
 
 **
 ** CaptchaCode
+** The Code "password" for a generated captcha
 **
-@Serializable{simple=true}
+@Serializable {simple = true}
 const class CaptchaCode
 {
-  const Str code
-  
-  new make(Str code)
+  const Str val
+
+  new makeStr(Str code)
   {
-    this.code = code
+    this.val = code
   }
-  
-  Str value() {code.toStr}
-  
-  override Str toStr() {value}
+
+  Bool matches(Str text, Bool scrambledOk := false)
+  {
+    if( ! scrambledOk)
+      return val == text.trim
+    // otherwise checking if scrambled match
+    if(text.size != val.size)
+     return false
+    Bool match := true
+    cc := val.chars
+    text.chars.each { match = match && cc.contains(it.upper)}
+    return match
+  }
+
+  // serialization
+  override Str toStr() {val}
+  static CaptchaCode fromStr(Str val) {CaptchaCode.makeStr(val)}
 }
